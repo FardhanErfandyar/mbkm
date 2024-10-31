@@ -2,12 +2,27 @@
 
 <header>
     <div class="navbar">
-      <img src="logo.png" alt="Logo" class="logo">
-      <nav>
-        <a href="#">HOME</a>
-        <a href="#">PROGRAM</a>
-        <a href="#">KEGIATAN LAIN</a>
-        <a href="#">SYARAT</a>
-      </nav>
+        <!-- Logo -->
+        <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo">
+
+        <!-- Navigation Links -->
+        <nav>
+            <a href="#">HOME</a>
+            <a href="#">PROGRAM</a>
+            <a href="#">KEGIATAN LAIN</a>
+            <a href="#">SYARAT</a>
+        </nav>
+
+        <!-- User Login/Profile Section -->
+        <div class="user-section">
+            {% if user.is_authenticated %}
+                <!-- Display Profile Picture and Name if User is Logged In -->
+                <img src="{{ user.profile_picture.url }}" alt="Profile Picture" class="profile-picture">
+                <span class="username">{{ user.username }}</span>
+            {% else %}
+                <!-- Show Login Button if User is Not Logged In -->
+                <a href="" class="login-button">Login</a>
+            {% endif %}
+        </div>
     </div>
-  </header>
+</header>

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        {% load static %}
+
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
     </head>
     <body>
 
@@ -15,7 +17,7 @@
         {% block content %}
         {% endblock content %}
 
-        
+
             
     
     </body>
