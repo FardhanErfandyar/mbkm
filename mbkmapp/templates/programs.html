@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+<section class="programs-section">
+    <h2>DAFTAR PROGRAM TERSEDIA</h2>
+    <button class="new-program-button">AJUKAN PROGRAM BARU</button>
+
+    {% if programs %}
+        {% for program in programs %}
+            <div class="program-card">
+                <div class="program-info">    
+                    <h3>{{ program.nama_program }}</h3> 
+                    <p>Penyelenggara: {{ program.penyelenggara }}</p> 
+                    <p>Durasi Program: {{ program.durasi }}</p> 
+                    <p class="sks">{{ program.sks }} SKS</p> 
+                </div>
+                <div class="program-meta">
+                    <p>Kuota Peserta: {{ program.kuota }} Orang</p> 
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'detail_program' program.id %}" class="register-button">Daftar</a>
+                    {% else %}
+                        <a href="#" class="register-button" data-toggle="modal" data-target="#loginModal">Daftar</a>
+                    {% endif %}
+
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Tidak ada program yang tersedia.</p>
+    {% endif %}
+</section>
+
+<!-- Modal untuk notifikasi login -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Peringatan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Anda harus login dulu sebelum daftar program ini.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+            </div>
+        </div>
+    </div>
+</div>
+    
+{% endblock content %}
+    

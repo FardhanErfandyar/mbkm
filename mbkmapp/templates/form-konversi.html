@@ -21,7 +21,7 @@
             </div>
 
             <!-- Form Main Content -->
-            <form action="" method="post" class="form-main">
+            <form action="" method="post" class="form-main" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="form-group">
                     {{ form.matkul_konversi.label_tag }}

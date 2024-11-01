@@ -7,8 +7,9 @@
 
         <!-- Navigation Links -->
         <nav>
-            <a href="#">HOME</a>
-            <a href="#">PROGRAM</a>
+            <a href="{% url 'landing' %}">HOME</a>
+            <a href="{% url 'daftar_program' %}">PROGRAM</a>
+            <a href="{% url 'program_saya' %}">PROGRAM SAYA</a>
             <a href="#">KEGIATAN LAIN</a>
             <a href="#">SYARAT</a>
         </nav>
@@ -16,12 +17,13 @@
         <!-- User Login/Profile Section -->
         <div class="user-section">
             {% if user.is_authenticated %}
-                <!-- Display Profile Picture and Name if User is Logged In -->
-                <img src="{{ user.profile_picture.url }}" alt="Profile Picture" class="profile-picture">
-                <span class="username">{{ user.username }}</span>
+                {% if user.profile_picture %}
+                    <img src="{{ user.profile_picture.url }}" alt="Profile Picture" class="profile-picture">
+                {% endif %}
+                <span class="username">{{ ser.username }}</span>
             {% else %}
                 <!-- Show Login Button if User is Not Logged In -->
-                <a href="" class="login-button">Login</a>
+                <a href="{% url 'login' %}" class="login-button">Login</a>
             {% endif %}
         </div>
     </div>

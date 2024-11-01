@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">FORM KONVERSI</h2>
+    
+    <div class="row">
+        <!-- Step Indicator -->
+        <div class="col-md-6 d-flex flex-column align-items-center">
+            <ul class="step-indicator list-unstyled">
+                <li><span class="step-circle"></span> Data Mahasiswa</li>
+                <li><span class="step-circle"></span> Download Document</li>
+                <li><span class="step-circle"></span> Data Konversi</li>
+                <li class="active"><span class="step-circle active-circle"></span> Status</li>
+            </ul>
+        </div>
+
+        <!-- Status Section -->
+        <div class="col-md-6">
+            <div class="status-box">
+                <p>
+                    <span class="status-indicator 
+                        {% if konversi.status == 'sedang_diverifikasi' %}
+                            status-pending-active
+                        {% else %}
+                            status-pending
+                        {% endif %}
+                    "></span> Sedang Diverifikasi
+                </p>
+                <p>
+                    <span class="status-indicator 
+                        {% if konversi.status == 'diterima' %}
+                            status-accepted-active
+                        {% else %}
+                            status-accepted
+                        {% endif %}
+                    "></span> Diterima
+                </p>
+                <p>
+                    <span class="status-indicator 
+                        {% if konversi.status == 'ditolak' %}
+                            status-rejected-active
+                        {% else %}
+                            status-rejected
+                        {% endif %}
+                    "></span> Ditolak
+                </p>
+                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+<style>
+/* Centering Container */
+.container {
+    max-width: 800px;
+}
+
+/* Step Indicator Styles */
+.step-indicator li {
+    font-size: 1rem;
+    color: #6c757d;
+    position: relative;
+    margin-bottom: 15px;
+    padding-left: 25px;
+}
+
+.step-circle {
+    width: 12px;
+    height: 12px;
+    background-color: #d1e7ff;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 5px;
+}
+
+.active-circle {
+    background-color: #0d6efd;
+}
+
+.step-indicator li.active {
+    font-weight: bold;
+    color: #0d6efd;
+}
+
+/* Status Box Styles */
+.status-box {
+    border-left: 2px solid #dee2e6;
+    padding-left: 20px;
+}
+
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+/* Default Status Colors */
+.status-pending {
+    background-color: #ffc107;
+}
+.status-accepted {
+    background-color: #28a745;
+}
+.status-rejected {
+    background-color: #dc3545;
+}
+
+/* Active Status Colors */
+.status-pending-active {
+    background-color: #ffc107;
+    box-shadow: 0 0 10px #ffc107;
+}
+
+.status-accepted-active {
+    background-color: #28a745;
+    box-shadow: 0 0 10px #28a745;
+}
+
+.status-rejected-active {
+    background-color: #dc3545;
+    box-shadow: 0 0 10px #dc3545;
+}
+</style>

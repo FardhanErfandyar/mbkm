@@ -1,0 +1,43 @@
+{% extends 'base-login.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<div class="auth-container">
+    <h2 class="auth-title">Sign Up</h2>
+    <form id="registerForm" method="post" novalidate>
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            {{ form.username }}
+            {% if form.username.errors %}
+                <div class="text-danger">
+                    {% for error in form.username.errors %}
+                        <small>{{ error }}</small>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            {{ form.password }}
+            {% if form.password.errors %}
+                <div class="text-danger">
+                    {% for error in form.password.errors %}
+                        <small>{{ error }}</small>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+    <div class="login-link">
+        don't have an account? <a href="">Register here</a>
+    </div>
+</div>
+    
+{% endblock content %}
+    
+

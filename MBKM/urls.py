@@ -18,14 +18,22 @@ from django.contrib import admin
 from django.urls import path
 from MBKM import settings
 from django.conf.urls.static import static
+from django.contrib.auth.views import LogoutView
 from mbkmapp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', landing, name="landing"),
-    path('tambah-konversi/data-konversi', form_konversi, name="form_konversi"),
-    path('tambah-konversi/data-semester', form_semester, name="form_semester"),
-    path('tambah-konversi/download-form', download_form, name="download-form"),
+    path('programs/<int:id>/tambah-konversi/data-konversi', form_konversi, name="form_konversi"),
+    path('programs/<int:id>/tambah-konversi/data-semester', form_semester, name="form_semester"),
+    path('programs/<int:id>/tambah-konversi/download-form', download_form, name="download-form"),
+    path('programs/<int:id>/tambah-konversi/status_daftar', status_daftar, name="status_daftar"),
+    path('register-mahasiswa/', register_mahasiswa, name="register_mahasiswa"),
+    path('login/', login_view, name='login'),
+    path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
+    path('programs/', daftar_program, name='daftar_program'),
+    path('programs/<int:id>/', detail_program, name='detail_program'), 
+    path('program-saya/', program_saya, name='program_saya'),
     
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

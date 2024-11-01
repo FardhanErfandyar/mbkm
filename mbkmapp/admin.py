@@ -8,4 +8,7 @@ class ProgramAdmin(admin.ModelAdmin):
     search_fields = ['nama_program', 'penyelenggara', 'kuota']  
     list_per_page = 8
 
-admin.site.register(Program, ProgramAdmin)    
+admin.site.register(Program, ProgramAdmin)
+admin.site.register(Mahasiswa)
+admin.site.register(Dosen)
+admin.site.register(Konversi)

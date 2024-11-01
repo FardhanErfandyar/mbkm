@@ -52,8 +52,6 @@ class Konversi(models.Model):
         ('diterima', 'Diterima'),
         ('ditolak', 'Ditolak'),
     ]
-
-    id_konversi = models.CharField(max_length=255)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
     mahasiswa = models.ForeignKey(Mahasiswa, on_delete=models.CASCADE, null=True)  
@@ -63,7 +61,7 @@ class Konversi(models.Model):
     document = models.FileField(upload_to='documents/', null=True, blank=True)
     dosen_wali = models.ForeignKey(Dosen, on_delete=models.SET_NULL, null=True, related_name="konversi_mahasiswa")
     
-    # Menambahkan foreign key ke Verifikasi
+    program = models.ForeignKey(Program, on_delete=models.CASCADE, null=True, related_name="konversi_program")
     verifikasi = models.ForeignKey('Verifikasi', on_delete=models.SET_NULL, null=True, related_name="konversi")
 
     def __str__(self):

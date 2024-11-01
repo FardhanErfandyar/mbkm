@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block content %}
+
+<section class="program-details-section">
+    <div class="program-details-header">
+        <h2>{{ program.nama_program }}</h2>
+        <p class="sks">{{ program.sks }} SKS</p>
+    </div>
+    <div class="program-meta">
+        <p><strong>Penyelenggara:</strong> {{ program.penyelenggara }}</p>
+        <p><strong>Durasi Program:</strong> {{ program.durasi }}</p>
+        <p class="quota">Sisa Kuota: {{ program.kuota }} Orang</p>
+        <a href="{% url 'form_semester' program.id %}" class="register-button">Daftar</a>
+    </div>
+
+    <div class="program-description">
+        <h3>Deskripsi Program</h3>
+        <p>{{ program.deskripsi|linebreaks }}</p>
+    </div>
+
+    <div class="program-details">
+        <h3>Rincian Kegiatan</h3>
+        <ul>
+            {% for kegiatan in rincian_kegiatan %}
+                <li>{{ kegiatan }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="program-criteria">
+        <h3>Kriteria Peserta</h3>
+        <ul>
+            {% for kriteria in kriteria_peserta %}
+                <li>{{ kriteria }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+
+    
+{% endblock content %}
+    

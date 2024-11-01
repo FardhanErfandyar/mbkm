@@ -507,6 +507,11 @@ body {
   text-align: center;
 }
 
+.dropdown {
+  position: absolute; /* Atau relative, sesuai kebutuhan */
+  z-index: 1000; /* Nilai tinggi untuk memastikan berada di atas elemen lain */
+}
+
 .form-content {
   display: flex;
 }
