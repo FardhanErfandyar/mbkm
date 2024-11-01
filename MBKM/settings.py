@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'MBKM.wsgi.application'
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
         "NAME": "postgres",
         "USER": "postgres.lwylusgmowkfuochbcky",
         "PASSWORD": "vZJBP1f51pnWdPit",
@@ -84,6 +84,17 @@ DATABASES = {
         "PORT": "6543",
     }
 }
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.mysql",
+#         "NAME": "mbkm",
+#         "USER": "root",
+#         "PASSWORD": "your_password",
+#         "HOST": "localhost",
+#         "PORT": "3306",
+#     }
+# }
 
 # vZJBP1f51pnWdPit
 
@@ -136,3 +147,6 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'

@@ -1,3 +1,4 @@
 
 *.pyc
-__pycache__/
+MBKM/__pycache__/
+mkbmapp/__pycache__/

@@ -16,10 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from MBKM import settings
+from django.conf.urls.static import static
 from mbkmapp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', landing, name="landing"),
+    path('tambah-konversi/data-konversi', form_konversi, name="form_konversi"),
+    path('tambah-konversi/data-semester', form_semester, name="form_semester"),
+    path('tambah-konversi/download-form', download_form, name="download-form"),
     
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
