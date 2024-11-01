@@ -13,7 +13,7 @@
             <!-- Sidebar Steps -->
             <div class="form-sidebar">
                 <ul>
-                    <li><span class="dot"></span>Data Semester</li>
+                    <li><span class="dot"></span>Data Mahasiswa</li>
                     <li class="active"><span class="dot"></span>Download Document</li>
                     <li><span class="dot"></span>Data Konversi</li>
                     <li><span class="dot"></span>Status</li>
@@ -23,7 +23,10 @@
             <div class="form-main">
                 <!-- Button for Downloading the File -->
                 <div class="form-buttons">
-                    <a href="{% static 'pdf/Form.pdf' %}?id={{ program_id }}" download="formulir-mbkm.pdf" class="btn-download">Download Form</a>
+                    <a href="{% static 'pdf/Form.pdf' %}?id={{ program_id }}" download="formulir-mbkm.pdf" class="btn btn-link" style="text-decoration: none; color: black;">
+                        <img src="{% static 'img/pdf-icon.svg' %}" alt="Download Form" class="me-2">
+                        Click pdf image to download
+                    </a>
                 </div>
             
                 <!-- Buttons for navigation -->

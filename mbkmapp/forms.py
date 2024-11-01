@@ -25,14 +25,17 @@ class FormKonversi(ModelForm):
 
 
 class FormSemester(ModelForm):
+    dosen = forms.ModelChoiceField(queryset=Dosen.objects.all(), empty_label="Pilih Dosen Wali")
     class Meta:
-        model = UserProfile
-        fields = ['semester']
+        model = Mahasiswa
+        fields = ['semester', 'dosen']
         labels = {
             'semester' : 'Semester',
+            'dosen' : 'Dosen Wali'
             }
         widgets = {
             'semester': forms.TextInput(attrs={'class': 'form-control'}),
+            'dosen': forms.Select(attrs={'class': 'form-control'}),
 
         }
     def __init__(self, *args, **kwargs):

@@ -13,7 +13,7 @@
             <!-- Sidebar Steps -->
             <div class="form-sidebar">
                 <ul>
-                    <li class="active"><span class="dot"></span>Data Semester</li>
+                    <li class="active"><span class="dot"></span>Data Mahasiswa</li>
                     <li><span class="dot"></span>Download Document</li>
                     <li><span class="dot"></span>Data Konversi</li>
                     <li><span class="dot"></span>Status</li>
@@ -26,6 +26,10 @@
                 <div class="form-group">
                     {{ form.semester.label_tag }}
                     {{ form.semester }}
+                </div>
+                <div class="form-group">
+                    {{ form.dosen.label_tag }}
+                    {{ form.dosen }}
                 </div>
                 <div class="form-buttons">
                     <button class="btn-back" type="button" onclick="window.history.back()">Kembali</button>

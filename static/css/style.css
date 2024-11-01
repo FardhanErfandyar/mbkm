@@ -575,7 +575,7 @@ body {
 }
 
 .btn-download {
-  background-color: #2196F3; /* Blue */
+  background-color: #ffffff; /* Blue */
   color: white;
   padding: 10px 15px;
   text-decoration: none;
@@ -654,6 +654,14 @@ body {
 .form-buttons {
     margin-top: 20px;
     text-align: center;
+}
+
+.form-buttons img {
+  transition: transform 0.3s; /* Animasi saat hover */
+}
+
+.form-buttons a:hover img {
+  transform: scale(10); /* Membesarkan gambar sedikit saat hover */
 }
 
 .btn-upload, .btn-cancel {
